@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- CODE2040 API challenges solution -->
+<!-- Author: Tomas Kepple Borba -->
+<!-- Date: 01/07/2015 -->
+<head>
+<title>"CODE2040 Tomas Borba scripts"</title>
+</head>
+<body>
+<html>
+<div id="myResults">
+</div>
+
+<script> 
+// CODE2040 registration code
+xmlhttp = new XMLHttpRequest();
+var url = "http://challenge.code2040.org/api/register";
+var parsedData;
+var token;
+xmlhttp.open("POST", url, true);
+xmlhttp.setRequestHeader("Content-type", "application/json");
+xmlhttp.onreadystatechange = function () { //Call function when the state changes.
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+       
+		parsedData = JSON.parse(xmlhttp.responseText);
+		token = parsedData.result;
+		
+    }
+}
+var parameters = JSON.stringify({
+    "email": "tomasborba@gmail.com",
+    "github": "https://github.com/tomaskb/code2040"
+});
+
+xmlhttp.send(parameters);
+
+
+
+alert(token);
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
